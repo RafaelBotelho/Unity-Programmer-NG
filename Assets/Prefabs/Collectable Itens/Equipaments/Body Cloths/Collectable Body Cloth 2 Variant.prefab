@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1907359604951794260
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2883109264196667875}
+    m_Modifications:
+    - target: {fileID: 1385547108538009080, guid: 2489d878a2066084ba4e1a5a28202306, type: 3}
+      propertyPath: m_Name
+      value: Body Cloth 3 AP
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385547108538243480, guid: 2489d878a2066084ba4e1a5a28202306, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385547108538243480, guid: 2489d878a2066084ba4e1a5a28202306, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385547108538243480, guid: 2489d878a2066084ba4e1a5a28202306, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385547108538243480, guid: 2489d878a2066084ba4e1a5a28202306, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385547108538243480, guid: 2489d878a2066084ba4e1a5a28202306, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385547108538243480, guid: 2489d878a2066084ba4e1a5a28202306, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385547108538243480, guid: 2489d878a2066084ba4e1a5a28202306, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385547108538243480, guid: 2489d878a2066084ba4e1a5a28202306, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385547108538243480, guid: 2489d878a2066084ba4e1a5a28202306, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385547108538243480, guid: 2489d878a2066084ba4e1a5a28202306, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2489d878a2066084ba4e1a5a28202306, type: 3}
+--- !u!4 &667164644462894028 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1385547108538243480, guid: 2489d878a2066084ba4e1a5a28202306, type: 3}
+  m_PrefabInstance: {fileID: 1907359604951794260}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3348767092752598504
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5060584152562441079, guid: d446fabeeacd7884f98f7e367e55d150, type: 3}
+      propertyPath: m_Name
+      value: Collectable Body Cloth 2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389785314001112924, guid: d446fabeeacd7884f98f7e367e55d150, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389785314001112924, guid: d446fabeeacd7884f98f7e367e55d150, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389785314001112924, guid: d446fabeeacd7884f98f7e367e55d150, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389785314001112924, guid: d446fabeeacd7884f98f7e367e55d150, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389785314001112924, guid: d446fabeeacd7884f98f7e367e55d150, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389785314001112924, guid: d446fabeeacd7884f98f7e367e55d150, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389785314001112924, guid: d446fabeeacd7884f98f7e367e55d150, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389785314001112924, guid: d446fabeeacd7884f98f7e367e55d150, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389785314001112924, guid: d446fabeeacd7884f98f7e367e55d150, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389785314001112924, guid: d446fabeeacd7884f98f7e367e55d150, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032741115459633015, guid: d446fabeeacd7884f98f7e367e55d150, type: 3}
+      propertyPath: _item
+      value: 
+      objectReference: {fileID: 11400000, guid: 4d318bf6ea81e7d4c885b1aa5d6b145c, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 467223671092399115, guid: d446fabeeacd7884f98f7e367e55d150, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 667164644462894028}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d446fabeeacd7884f98f7e367e55d150, type: 3}
+--- !u!4 &2883109264196667875 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 467223671092399115, guid: d446fabeeacd7884f98f7e367e55d150, type: 3}
+  m_PrefabInstance: {fileID: 3348767092752598504}
+  m_PrefabAsset: {fileID: 0}
