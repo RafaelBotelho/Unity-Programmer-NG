@@ -1,23 +1,23 @@
-using System;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class NpcInteractable : MonoBehaviour
+public class NpcInteractable : MonoBehaviour, IInteractable
 {
     #region Variables
 
-    [SerializeField] private SO_ItemBase _item;
+    [SerializeField] private string _InteractionDescription;
     [SerializeField] private bool _isInteractable;
 
     #endregion
 
     #region Events
 
-    public static event Action<SO_ItemBase> OnItemInteracted;
+    public UnityEvent OnInteract;
 
     #endregion
-    
+
     #region Properties
-    
+
     public bool isInteractable => _isInteractable;
 
     #endregion
@@ -26,14 +26,14 @@ public class NpcInteractable : MonoBehaviour
 
     public string GetDescription()
     {
-        return _item.InteractionDescription + _item.ItemName;
+        return _InteractionDescription;
     }
 
     public void Interact()
     {
-        if(!_isInteractable) return;
-        
-        OnItemInteracted?.Invoke(_item);
+        if (!_isInteractable) return;
+
+        OnInteract?.Invoke();
     }
 
     #endregion

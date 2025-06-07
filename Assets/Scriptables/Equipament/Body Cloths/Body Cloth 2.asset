@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Body Cloth 2
   m_EditorClassIdentifier: 
   _itemName: Body 2
-  _interactionDescription: Equip
+  _interactionDescription: 'Equip '
   equipmentType: 1
   _visualIndex: 2

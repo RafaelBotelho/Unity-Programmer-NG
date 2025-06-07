@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Hat 5
   m_EditorClassIdentifier: 
   _itemName: Hat 5
-  _interactionDescription: Equip
+  _interactionDescription: 'Equip '
   equipmentType: 3
   _visualIndex: 5

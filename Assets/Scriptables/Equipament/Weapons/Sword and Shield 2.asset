@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sword and Shield 2
   m_EditorClassIdentifier: 
   _itemName: Sword and Shield 2
-  _interactionDescription: Equip
+  _interactionDescription: 'Equip '
   equipmentType: 5
   _visualIndex: 0
   _leftHandIndex: 2

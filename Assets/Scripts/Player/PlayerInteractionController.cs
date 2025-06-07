@@ -74,7 +74,8 @@ public class PlayerInteractionController : MonoBehaviour
 
     private void FindInteractables()
     {
-        if (Physics.Raycast(_myTransform.position + Vector3.up * _yOffset, _myTransform.forward * _raySize, out RaycastHit hit))
+        if (Physics.Raycast(_myTransform.position + Vector3.up * _yOffset, _myTransform.forward, out RaycastHit hit,
+                _raySize))
         {
             if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
                 SetInteractable(interactable);

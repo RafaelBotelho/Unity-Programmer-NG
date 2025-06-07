@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Glove 7
   m_EditorClassIdentifier: 
   _itemName: Glove 7
-  _interactionDescription: Equip
+  _interactionDescription: 'Equip '
   equipmentType: 2
   _visualIndex: 7
