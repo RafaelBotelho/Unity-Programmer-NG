@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Sword and Shield 2
   _interactionDescription: 'Equip '
+  _icon: {fileID: 21300000, guid: ed1040a00dc884dc8a1cecce7ccc33c4, type: 3}
   equipmentType: 5
   _visualIndex: 0
   _leftHandIndex: 2

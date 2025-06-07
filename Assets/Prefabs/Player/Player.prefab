@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6083211885503050797}
   - component: {fileID: 960890770840319470}
   - component: {fileID: 7139374863544270071}
+  - component: {fileID: 2629997315286758615}
   - component: {fileID: 1197462172701308710}
   - component: {fileID: 4577723883493991740}
   - component: {fileID: 403942327371071751}
@@ -162,6 +163,20 @@ MonoBehaviour:
   _jumpVfxController: {fileID: 5769504215953621134}
   _doubleJumpVfxController: {fileID: 564120400760305185}
   _landVfxController: {fileID: 3392784232560917402}
+--- !u!114 &2629997315286758615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403942327371071755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221fa14c02ae799478de5ea707df7a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _invertoryWidth: 6
+  _invertoryHeight: 3
 --- !u!114 &1197462172701308710
 MonoBehaviour:
   m_ObjectHideFlags: 0

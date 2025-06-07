@@ -52,12 +52,12 @@ public class PlayerEquipmentController : MonoBehaviour
 
     private void SubscribeToEvents()
     {
-        ItemPickUpInteractable.OnItemInteracted += CheckItem;
+        //ItemPickUpInteractable.OnItemInteracted += CheckItem;
     }
 
     private void UnsubscribeToEvents()
     {
-        ItemPickUpInteractable.OnItemInteracted -= CheckItem;
+        //ItemPickUpInteractable.OnItemInteracted -= CheckItem;
     }
 
     private void ResetEquipment()

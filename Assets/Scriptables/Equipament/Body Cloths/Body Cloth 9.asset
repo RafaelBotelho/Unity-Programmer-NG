@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Body 9
   _interactionDescription: 'Equip '
+  _icon: {fileID: 21300000, guid: ca503b295709c4c23a90e8fdbd515735, type: 3}
   equipmentType: 1
   _visualIndex: 9

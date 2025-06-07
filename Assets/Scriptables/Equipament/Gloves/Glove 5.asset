@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Glove 5
   _interactionDescription: 'Equip '
+  _icon: {fileID: 21300000, guid: 47fbfb4182edc472780b21b862f21613, type: 3}
   equipmentType: 2
   _visualIndex: 5

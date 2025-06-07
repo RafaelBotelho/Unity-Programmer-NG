@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Shoe 4
   _interactionDescription: 'Equip '
+  _icon: {fileID: 21300000, guid: e98f460900c2d42e8b76eb872bdab84e, type: 3}
   equipmentType: 4
   _visualIndex: 4

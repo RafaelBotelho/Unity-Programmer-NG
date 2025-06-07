@@ -66,6 +66,11 @@ public class PlayerInputController : MonoBehaviour
 		PauseResumeInput();
 	}
 	
+	public void OnInventory(InputValue value)
+	{
+		InventoryInput();
+	}
+	
 	#endregion
 
 	#region Change States
@@ -104,6 +109,25 @@ public class PlayerInputController : MonoBehaviour
 				break;
 			case GameState.GAMEPLAY:
 				GameStateManager.ChangeGameState(GameState.PAUSE);
+				break;
+			case GameState.INVENTORY:
+				GameStateManager.ChangeGameState(GameState.PAUSE);
+				break;
+		}
+		SetCursorState();
+	}
+	
+	private void InventoryInput()
+	{
+		switch (GameStateManager.currentGameState)
+		{
+			case GameState.PAUSE:
+				break;
+			case GameState.GAMEPLAY:
+				GameStateManager.ChangeGameState(GameState.INVENTORY);
+				break;
+			case GameState.INVENTORY:
+				GameStateManager.ChangeGameState(GameState.GAMEPLAY);
 				break;
 		}
 		SetCursorState();
