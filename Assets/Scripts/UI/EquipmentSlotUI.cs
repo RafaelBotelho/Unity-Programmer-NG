@@ -9,6 +9,7 @@ public class EquipmentSlotUI : MonoBehaviour, IUiDraggable
     [SerializeField] private EquipmentType _equipmentType;
     [SerializeField] private Image _icon;
     [SerializeField] private InventoryControllerUI _inventoryControllerUI;
+    [SerializeField] private ItemInspectorUI _itemInspectorUI;
     [SerializeField] private Sprite _startIcon;
     
     private SO_EquipableItem _equipableItem;
@@ -41,7 +42,14 @@ public class EquipmentSlotUI : MonoBehaviour, IUiDraggable
         OnEquipItem?.Invoke(_equipableItem);
     }
 
-    public void RemoveEquipment()
+    public void InspectItem()
+    {
+        if (!_equipableItem) return;
+        
+        _itemInspectorUI.SetItem(this);
+    }
+    
+    public void RemoveItem()
     {
         if (!_startIcon)
         {

@@ -77,6 +77,7 @@ public class PlayerInventoryController : MonoBehaviour
         InventoryControllerUI.OnDragInventoryToInventory += HandleInventoryDrag;
         InventoryControllerUI.OnDragInventoryToEquipment += HandleInventoryEquipmentDrag;
         InventoryControllerUI.OnDragEquipmentToInventory += HandleEquipmentInventoryDrag;
+        InventorySlotUI.OnRemoveItem += HandleInventoryEquipmentDrag;
     }
 
     private void UnsubscribeToEvents()
@@ -85,6 +86,7 @@ public class PlayerInventoryController : MonoBehaviour
         InventoryControllerUI.OnDragInventoryToInventory -= HandleInventoryDrag;
         InventoryControllerUI.OnDragInventoryToEquipment -= HandleInventoryEquipmentDrag;
         InventoryControllerUI.OnDragEquipmentToInventory -= HandleEquipmentInventoryDrag;
+        InventorySlotUI.OnRemoveItem -= HandleInventoryEquipmentDrag;
     }
 
     private void CheckItem(SO_ItemBase item)

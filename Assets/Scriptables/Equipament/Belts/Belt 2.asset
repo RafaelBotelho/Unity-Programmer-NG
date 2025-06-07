@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Belt 2
   _interactionDescription: 'Equip '
+  _description: An Elegant Belt
   _icon: {fileID: 21300000, guid: c467d35ffb2234d66a40d21df5d75123, type: 3}
   equipmentType: 0
   _visualIndex: 2

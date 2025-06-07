@@ -48,5 +48,10 @@ public class PauseCanvasController : MonoBehaviour
         }
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+    
     #endregion
 }

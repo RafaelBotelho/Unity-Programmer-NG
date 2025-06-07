@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Glove 3
   _interactionDescription: 'Equip '
+  _description: A Sturdy Glove
   _icon: {fileID: 21300000, guid: 47fbfb4182edc472780b21b862f21613, type: 3}
   equipmentType: 2
   _visualIndex: 3

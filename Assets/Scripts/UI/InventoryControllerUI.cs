@@ -124,7 +124,7 @@ public class InventoryControllerUI : MonoBehaviour
 
         if (draggedToInventory && draggedFromEquipment)
         {
-            draggedFromEquipment.RemoveEquipment();
+            draggedFromEquipment.RemoveItem();
             
             OnDragEquipmentToInventory?.Invoke(draggedFromEquipment, draggedToInventory);
         

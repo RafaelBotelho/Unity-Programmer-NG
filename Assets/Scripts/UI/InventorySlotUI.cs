@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class InventorySlotUI : MonoBehaviour, IUiDraggable
 
     [SerializeField] private Image _icon;
     [SerializeField] private InventoryControllerUI _inventoryControllerUI;
+    [SerializeField] private ItemInspectorUI _itemInspectorUI;
     [SerializeField] private Sprite _startIcon;
     
     private InventorySlot _slot;
@@ -16,6 +18,12 @@ public class InventorySlotUI : MonoBehaviour, IUiDraggable
     #region Properties
 
     public InventorySlot Slot => _slot;
+
+    #endregion
+
+    #region Events
+
+    public static event Action<InventorySlotUI> OnRemoveItem;
 
     #endregion
     
@@ -30,8 +38,17 @@ public class InventorySlotUI : MonoBehaviour, IUiDraggable
             _icon.sprite = _slot.Item.Icon;
             _icon.enabled = true;
         }
+        else
+            _icon.enabled = false;
     }
 
+    public void InspectItem()
+    {
+        if (!_slot.Item) return;
+        
+        _itemInspectorUI.SetItem(this);
+    }
+    
     public void StartDragging()
     {
         if (!_slot.Item) return;
@@ -51,6 +68,11 @@ public class InventorySlotUI : MonoBehaviour, IUiDraggable
     {
         _inventoryControllerUI.EndDragging(this);
     }
-    
+
+    public void RemoveItem()
+    {
+        OnRemoveItem?.Invoke(this);
+    }
+
     #endregion
 }
