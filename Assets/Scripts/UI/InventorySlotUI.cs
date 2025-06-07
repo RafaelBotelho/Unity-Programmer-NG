@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventorySlotUI : MonoBehaviour
+public class InventorySlotUI : MonoBehaviour, IUiDraggable
 {
     #region Variables
 
     [SerializeField] private Image _icon;
     [SerializeField] private InventoryControllerUI _inventoryControllerUI;
+    [SerializeField] private Sprite _startIcon;
     
     private InventorySlot _slot;
 
@@ -29,7 +30,6 @@ public class InventorySlotUI : MonoBehaviour
             _icon.sprite = _slot.Item.Icon;
             _icon.enabled = true;
         }
-            
     }
 
     public void StartDragging()
@@ -37,8 +37,14 @@ public class InventorySlotUI : MonoBehaviour
         if (!_slot.Item) return;
         
         _inventoryControllerUI.StartDragging(this);
-        _icon.enabled = false;
-        _icon.sprite = null;
+
+        if (!_startIcon)
+        {
+            _icon.enabled = false;
+            _icon.sprite = null;
+        }
+        else
+            _icon.sprite = _startIcon;
     }
 
     public void EndDragging()

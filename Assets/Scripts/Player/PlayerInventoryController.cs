@@ -74,13 +74,17 @@ public class PlayerInventoryController : MonoBehaviour
     private void SubscribeToEvents()
     {
         ItemPickUpInteractable.OnItemInteracted += CheckItem;
-        InventoryControllerUI.OnDragPerformed += HandleInventoryDrag;
+        InventoryControllerUI.OnDragInventoryToInventory += HandleInventoryDrag;
+        InventoryControllerUI.OnDragInventoryToEquipment += HandleInventoryEquipmentDrag;
+        InventoryControllerUI.OnDragEquipmentToInventory += HandleEquipmentInventoryDrag;
     }
 
     private void UnsubscribeToEvents()
     {
         ItemPickUpInteractable.OnItemInteracted -= CheckItem;
-        InventoryControllerUI.OnDragPerformed -= HandleInventoryDrag;
+        InventoryControllerUI.OnDragInventoryToInventory -= HandleInventoryDrag;
+        InventoryControllerUI.OnDragInventoryToEquipment -= HandleInventoryEquipmentDrag;
+        InventoryControllerUI.OnDragEquipmentToInventory -= HandleEquipmentInventoryDrag;
     }
 
     private void CheckItem(SO_ItemBase item)
@@ -110,6 +114,20 @@ public class PlayerInventoryController : MonoBehaviour
 
         AddItemToInventory(draggedFrom.Slot.Position.x, draggedFrom.Slot.Position.y, draggedToItem);
         AddItemToInventory(draggedTo.Slot.Position.x, draggedTo.Slot.Position.y, draggedFromItem);
+    }
+    
+    private void HandleInventoryEquipmentDrag(InventorySlotUI draggedFrom)
+    {
+        if (!draggedFrom) return;
+        
+        RemoveItemToInventory(draggedFrom.Slot.Position.x, draggedFrom.Slot.Position.y);
+    }
+    
+    private void HandleEquipmentInventoryDrag(EquipmentSlotUI draggedFrom, InventorySlotUI draggedTo)
+    {
+        if (!draggedFrom) return;
+
+        AddItemToInventory(draggedTo.Slot.Position.x, draggedTo.Slot.Position.y, draggedFrom.EquipableItem);
     }
     
     private void AddItemToInventory(int xPosition, int yPosition, SO_ItemBase item)

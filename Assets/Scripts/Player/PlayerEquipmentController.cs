@@ -52,12 +52,14 @@ public class PlayerEquipmentController : MonoBehaviour
 
     private void SubscribeToEvents()
     {
-        //ItemPickUpInteractable.OnItemInteracted += CheckItem;
+        EquipmentSlotUI.OnEquipItem += CheckItem;
+        EquipmentSlotUI.OnRemoveItem += HandleItemRemoved;
     }
 
     private void UnsubscribeToEvents()
     {
-        //ItemPickUpInteractable.OnItemInteracted -= CheckItem;
+        EquipmentSlotUI.OnEquipItem -= CheckItem;
+        EquipmentSlotUI.OnRemoveItem -= HandleItemRemoved;
     }
 
     private void ResetEquipment()
@@ -93,6 +95,31 @@ public class PlayerEquipmentController : MonoBehaviour
             RemoveEquipment(EquipmentType.WEAPON);
     }
 
+    private void HandleItemRemoved(SO_EquipableItem item)
+    {
+        switch (item.EquipmentType)
+        {
+            case EquipmentType.BELT:
+                RemoveEquipment(EquipmentType.BELT);
+                break;
+            case EquipmentType.BODYCLOTH:
+                ChangeEquipment(_playerEquipmentBase.BodyCloth);
+                break;
+            case EquipmentType.GLOVE:
+                ChangeEquipment(_playerEquipmentBase.Glove);
+                break;
+            case EquipmentType.HAT:
+                RemoveEquipment(EquipmentType.HAT);
+                break;
+            case EquipmentType.SHOE:
+                ChangeEquipment(_playerEquipmentBase.Shoe);
+                break;
+            case EquipmentType.WEAPON:
+                ChangeEquipment(_playerEquipmentBase.Weapon);
+                break;
+        }
+    }
+    
     private void CheckItem(SO_ItemBase item)
     {
         ChangeEquipment(item as SO_EquipableItem);

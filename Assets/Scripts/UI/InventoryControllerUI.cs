@@ -10,14 +10,16 @@ public class InventoryControllerUI : MonoBehaviour
     [SerializeField] private Image _dragContainer;
     [SerializeField] private GameObject _inventoryPanel;
 
-    private InventorySlotUI _draggedFrom;
-    private InventorySlotUI _draggedTo;
+    private IUiDraggable _draggedFrom;
+    private IUiDraggable _draggedTo;
 
     #endregion
 
     #region Events
 
-    public static event Action<InventorySlotUI, InventorySlotUI> OnDragPerformed;
+    public static event Action<InventorySlotUI, InventorySlotUI> OnDragInventoryToInventory;
+    public static event Action<InventorySlotUI> OnDragInventoryToEquipment;
+    public static event Action<EquipmentSlotUI, InventorySlotUI> OnDragEquipmentToInventory;
     
     #endregion
     
@@ -94,29 +96,82 @@ public class InventoryControllerUI : MonoBehaviour
         }
     }
     
-    public void StartDragging(InventorySlotUI draggingSlot)
+    public void StartDragging(IUiDraggable draggingSlot)
     {
+        var inventory = draggingSlot as InventorySlotUI;
+        var equipment = draggingSlot as EquipmentSlotUI;
+        
         _draggedFrom = draggingSlot;
-
         _dragContainer.gameObject.SetActive(true);
-        _dragContainer.sprite = draggingSlot.Slot.Item.Icon;
+        _dragContainer.sprite = inventory ? inventory.Slot.Item.Icon : equipment.EquipableItem.Icon;
     }
     
-    public void EndDragging(InventorySlotUI draggingSlot)
+    public void EndDragging(IUiDraggable draggingSlot)
     {
+        var draggedToInventory = draggingSlot as InventorySlotUI;
+        var draggedToEquipment = draggingSlot as EquipmentSlotUI;
+        var draggedFromInventory = _draggedFrom as InventorySlotUI;
+        var draggedFromEquipment = _draggedFrom as EquipmentSlotUI;
+        
         _draggedTo = draggingSlot;
 
-        OnDragPerformed?.Invoke(_draggedFrom, _draggedTo);
+        if (draggedToInventory && draggedFromInventory)
+        {
+            OnDragInventoryToInventory?.Invoke(draggedToInventory, draggedFromInventory);
         
-        _dragContainer.gameObject.SetActive(false);
-        _draggedFrom = null;
-        _draggedTo = null;
+            DisableDrag();
+        }
+
+        if (draggedToInventory && draggedFromEquipment)
+        {
+            draggedFromEquipment.RemoveEquipment();
+            
+            OnDragEquipmentToInventory?.Invoke(draggedFromEquipment, draggedToInventory);
+        
+            DisableDrag();
+        }
+
+        if (draggedFromInventory && draggedToEquipment)
+        {
+            var inventoryItem = draggedFromInventory.Slot.Item as SO_EquipableItem;
+            
+            if (!inventoryItem || inventoryItem.EquipmentType != draggedToEquipment.EquipmentType)
+            {
+                UpdateInventorySlot(draggedFromInventory.Slot);
+                DisableDrag();
+                
+                return;
+            }
+            
+            draggedToEquipment.SetEquipment(draggedFromInventory.Slot.Item as SO_EquipableItem);
+            OnDragInventoryToEquipment?.Invoke(draggedFromInventory);
+        
+            DisableDrag();
+        }
+        
+        if (draggedToEquipment && draggedFromEquipment)
+        {
+            draggedFromEquipment.SetEquipment(draggedFromEquipment.EquipableItem);
+            DisableDrag();
+        }
     }
     
     public void CancelDrag()
     {
-        UpdateInventorySlot(_draggedFrom.Slot);
+        var uiInventorySlot = _draggedFrom as InventorySlotUI;
+        var uiEquipmentSlot = _draggedFrom as EquipmentSlotUI;
+
+        if (uiInventorySlot)
+            UpdateInventorySlot(uiInventorySlot.Slot);
         
+        if (uiEquipmentSlot)
+            uiEquipmentSlot.SetEquipment(uiEquipmentSlot.EquipableItem);
+        
+        DisableDrag();
+    }
+
+    private void DisableDrag()
+    {
         _dragContainer.gameObject.SetActive(false);
         _draggedFrom = null;
         _draggedTo = null;
